@@ -15,15 +15,16 @@ public class TestController {
     final CityRepository cityRepository;
 
     @GetMapping("connections")
-    public int getNumConnections()
+    public String getNumConnections()
     {
-        return ProxyDataSource.getNumConnections();
+        return "Number of connections: "+ProxyDataSource.getNumConnections()+"\n";
     }
     @GetMapping()
     public Iterable<City> getCities()    throws Exception
     {
         Iterable<City> cities=cityRepository.findAll();
-        Thread.sleep(5000);
+        Thread.sleep(4000);
+
         return cities;
     }
 }
