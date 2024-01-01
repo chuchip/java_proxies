@@ -15,7 +15,7 @@
 	<description>Demo project using proxies</description>
 
 	<dependencies>
-	<dependency>
+		<dependency>
 			<groupId>com.profesorp</groupId>
 			<artifactId>dumb-library</artifactId>
 			<version>1.1-SNAPSHOT</version>
