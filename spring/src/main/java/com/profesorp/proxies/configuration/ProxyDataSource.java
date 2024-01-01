@@ -78,12 +78,10 @@ public class ProxyDataSource extends DelegatingDataSource {
                     }
                 case "getTargetConnection":
                     return target;
+                case "close":
+                    setNumConnections(hikariDataSource.getHikariPoolMXBean().getActiveConnections());
+                    log.info("Closing connections. Active connections: "+numConnections);
                 default:
-                    if (method.getName().equals("close")) {
-                        setNumConnections(hikariDataSource.getHikariPoolMXBean().getActiveConnections());
-                        log.info("Closing connections. Active connections: "+numConnections);
-                        //Thread.sleep(5000);
-                    }
                     return method.invoke(target, args);
             }
         }
