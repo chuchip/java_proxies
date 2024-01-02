@@ -30,7 +30,7 @@ class DumbProxy implements InvocationHandler
     }
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("\n");
+        System.out.println("----");
         Object obj=null;
         switch (method.getName()) {
             case "sayHello":
